@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash Khati</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #0f0;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background-color: #222;
+        }
+
+        .hero .profile-img {
+            max-width: 350px;
+            width: 100%;
+            border-radius: 10px;
+            margin-right: 50px;
+        }
+
+        .hero .info {
+            max-width: 500px;
+        }
+
+        .hero .info h1 {
+            color: #0f0;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero .info h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #0f0;
+            color: #000;
+        }
+
+        /* Responsive */
+        @media(max-width: 900px){
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero .profile-img {
+                margin: 0 0 30px 0;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">PrakashKhati</div>
+        <nav>
+            <a href="#">गृहपृष्ठ</a>
+            <a href="#">मेरो ब्लग</a>
+            <a href="#">तस्विर</a>
+            <a href="#">मेरो बारे</a>
+            <a href="#">सम्पर्क</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="profile.png" alt="Prakash Khati" class="profile-img">
+        <div class="info">
+            <h1>प्रकाश खाती</h1>
+            <h2>Self-learner</h2>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
