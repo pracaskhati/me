@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>प्रकाश खाती - मेरो ब्लगमा हार्दिक स्वागत छ</title>
+<title>प्रकाश खाती - PrakashKhati</title>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 <style>
@@ -69,6 +69,28 @@ nav ul li a:hover{color:var(--accent-color);}
 .animate{opacity:0;transform:translateY(30px);transition:all 1s ease-out;}
 .active{opacity:1;transform:translateY(0);}
 #particle-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* --- FIX: Social icons visibility in mobile view --- */
+.section#section3 {
+  position: relative;
+  z-index: 30;
+}
+
+.socials {
+  position: relative;
+  z-index: 31;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+}
+
+/* Prevent hidden menu overlay from blocking other content */
+nav ul {
+  pointer-events: none;
+}
+
+nav ul.active {
+  pointer-events: all;
+}
 </style>
 </head>
 <body>
