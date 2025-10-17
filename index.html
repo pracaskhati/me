@@ -131,13 +131,14 @@ body.light .post-frame { background:rgba(0,0,0,0.05); box-shadow:0 0 10px rgba(0
   </ul>
 </nav>
 
-<div class="parallax" id="home">
+<section class="parallax" id="home" role="banner" aria-label="Hero section with welcome message">
   <div class="gradient-overlay"></div>
   <div class="hero-content">
-    <h3 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ 👋</h3>
-    <button class="hero-btn" id="heroBtn">अगाडी बढ्नुहोस् ⇩</button>
+    <h1 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ 👋</h1>
+    <p class="hero-subtitle">यहाँ तपाईंले लेख, रचना र विचारहरू पाउनुहुनेछ।</p>
+    <button class="hero-btn" id="heroBtn" aria-label="Scroll to introduction section">अगाडी बढ्नुहोस् ⇩</button>
   </div>
-</div>
+</section>
 
 <div class="section" id="section1">
   <h2>🚹 प्रकाश खाती</h2>
@@ -218,4 +219,5 @@ articles.forEach(article => {
 </script>
 </body>
 </html>
+
 
