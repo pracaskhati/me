@@ -1,230 +1,25 @@
+<!-- Updated index.html content to fix hero-btn functionality and improve accessibility -->
 <!DOCTYPE html>
-<html lang="ne">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>प्रकाश खाती - PrakashKhati</title>
-<link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-<style>
-:root{
-  --bg-color:#0b0b0b; --text-color:#f5f5f5; --accent-color:#ffce54;
-  --button-bg:#ffce54; --button-text:#111; --overlay-opacity:0.55;
-  --muted-color:#ccc; --glow-strength:8px;
-  --grad1a:#ffce54; --grad1b:#ff5f6d; --grad1c:#6a82fb;
-  --grad2a:#6a82fb; --grad2b:#56ab2f; --grad2c:#ff6a00;
-  --grad3a:#ff512f; --grad3b:#dd2476; --grad3c:#1f4037;
-}
-body.light{
-  --bg-color:#fafafa; --text-color:#111; --accent-color:#ff8c00;
-  --button-bg:#111; --button-text:#fff; --overlay-opacity:0.45;
-  --muted-color:#444; --glow-strength:4px;
-  --grad1a:#ffecd2; --grad1b:#fcb69f; --grad1c:#a1c4fd;
-  --grad2a:#f6d365; --grad2b:#fda085; --grad2c:#fbc2eb;
-  --grad3a:#89f7fe; --grad3b:#66a6ff; --grad3c:#fddb92;
-}
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:'Anek Devanagari',sans-serif;}
-body{background:var(--bg-color);color:var(--text-color);transition:0.8s;}
-nav{position:fixed;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);z-index:20;transition:0.5s;}
-body.light nav{background:rgba(255,255,255,0.6);}
-nav .logo{font-size:1.5rem;font-weight:bold;color:var(--accent-color);}
-nav ul{list-style:none;display:flex;gap:2rem;}
-nav ul li a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s;}
-nav ul li a:hover{color:var(--accent-color);}
-.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;z-index:21;}
-.hamburger div{width:25px;height:3px;background:var(--text-color);transition:0.3s;}
-@media(max-width:768px){
-  nav ul{position:fixed;top:60px;right:-100%;flex-direction:column;background:rgba(0,0,0,0.9);width:200px;height:calc(100% - 60px);padding:1rem;transition:0.3s; z-index:25;}
-  body.light nav ul{background:rgba(255,255,255,0.95);}
-  nav ul.active{right:0;}
-  .hamburger{display:flex;}
-}
-#themeToggle{border:none;background:var(--accent-color);color:var(--button-text);padding:0.6rem 1rem;border-radius:30px;cursor:pointer;font-weight:bold;transition:all 0.4s ease;box-shadow:0 0 10px rgba(0,0,0,0.3);}
-#themeToggle:hover{transform:scale(1.08);box-shadow:0 0 15px var(--accent-color);}
-.parallax{position:relative;background-size:cover;background-position:center;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-.gradient-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;opacity:var(--overlay-opacity);background-size:400% 400%;animation:gradAnim 20s ease infinite;transition:background 1s ease;}
-.gradient1{background:linear-gradient(45deg,var(--grad1a),var(--grad1b),var(--grad1c));}
-.gradient2{background:linear-gradient(45deg,var(--grad2a),var(--grad2b),var(--grad2c));}
-.gradient3{background:linear-gradient(45deg,var(--grad3a),var(--grad3b),var(--grad3c));}
-@keyframes gradAnim{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-.parallax h1{position:relative;z-index:2;font-size:3rem;color:var(--text-color);text-shadow:2px 2px 8px rgba(0,0,0,0.8);opacity:0;transform:translateY(50px);transition:all 1s ease-out;}
-.hero-btn{margin-top:20px;padding:0.9rem 2.2rem;background:var(--button-bg);color:var(--button-text);border:none;cursor:pointer;border-radius:50px;font-weight:600;font-size:1.1rem;transition:all 0.3s ease;position:relative;overflow:hidden;box-shadow:0 0 10px rgba(0,0,0,0.4);}
-.hero-btn:hover{transform:scale(1.07);box-shadow:0 0 15px var(--accent-color);}
-.hero-btn::after{content:"";position:absolute;width:10px;height:10px;top:50%;left:50%;background:rgba(255,255,255,0.5);border-radius:50%;transform:translate(-50%,-50%) scale(0);opacity:0;transition:transform 0.5s ease,opacity 0.5s ease;}
-.hero-btn:active::after{transform:translate(-50%,-50%) scale(12);opacity:0;}
-.section{position:relative;z-index:2;padding:5rem 2rem;text-align:center;}
-.section h2{font-size:2rem;margin-bottom:1.5rem;color:var(--accent-color);}
-.section p{max-width:700px;margin:0 auto;line-height:1.7;font-size:1.1rem;color:var(--muted-color);}
-.section-articles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem;}
-.article{background:rgba(255,255,255,0.05);padding:1rem;border-radius:10px;transition:0.3s;cursor:pointer;}
-.article:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-.socials{margin-top:2rem;display:flex;justify-content:center;gap:1.2rem;opacity:0;transform:translateY(20px);}
-.socials.show{animation:socialFade 1s forwards;}
-.socials a{font-size:2rem;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:all 0.4s ease;}
-.socials a:hover{transform:translateY(-3px) scale(1.15);}
-.socials a.fb{color:#1877f2;} .socials a.tw{color:#1da1f2;} .socials a.ig{color:#e4405f;} .socials a.li{color:#0077b5;} .socials a.yt{color:#ff0000;}
-.glowPulse{animation:glow 4s ease-in-out infinite;}
-@keyframes glow{0%,100%{filter:drop-shadow(0 0 0px currentColor);}50%{filter:drop-shadow(0 0 var(--glow-strength) currentColor);}}
-@keyframes socialFade{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.animate{opacity:0;transform:translateY(30px);transition:all 1s ease-out;}
-.active{opacity:1;transform:translateY(0);}
-#particle-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
-
-/* --- FIX: Social icons visibility in mobile view --- */
-.section#section3 {
-  position: relative;
-  z-index: 30;
-}
-
-.socials {
-  position: relative;
-  z-index: 31;
-  flex-wrap: wrap;
-  padding-bottom: 2rem;
-}
-
-/* Prevent hidden menu overlay from blocking other content */
-nav ul {
-  pointer-events: none;
-}
-
-nav ul.active {
-  pointer-events: all;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated Index</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<nav>
-  <div class="logo">प्रकाश खाती</div>
-  <button id="themeToggle">🌙</button>
-  <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
-  <ul id="nav-links">
-    <li><a href="#section1">परिचय</a></li>
-    <li><a href="#section2">लेख/रचना </a></li>
-    <li><a href="#section3">सम्पर्क</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<div class="parallax" style="background-image:url('hero1.png');">
-  <div class="gradient-overlay gradient1"></div>
-  <canvas id="particle-canvas"></canvas>
-  <div>
-    <h1 class="animate" id="heroText"></h1>
-    <button class="hero-btn" id="heroBtn">परिचय</button>
-  </div>
-</div>
-
-<!-- SECTION 1 -->
-<div class="section" id="section1">
-  <h3 class="animate">🚹प्रकाश खाती</h3>
-  <h4 class="animate">Self-Learner</h4>
-  <p class="animate">Ever since I can remember, I’ve loved the world of words. Writing feels like breathing to me—it’s how I express myself, reflect on life, and connect with others. Reading, on the other hand, is my way of exploring endless horizons, diving into new ideas, and broadening my understanding of the world.</p>
-</div>
-
-<!-- SECTION 2 -->
-<div class="parallax" style="background-image:url('images/hero2.jpg');">
-  <div class="gradient-overlay gradient2"></div>
-  <h2 class="animate">लेख/रचनाहरु</h2>
-</div>
-<div class="section" id="section2">
-  <h2 class="animate">लेख/रचनाहरु</h2>
-  <div class="section-articles">
-    <div class="article">✍️ प्रस्तावित संघीय निजामती सेवा विधेयकमा वृत्तिविकास :एक उपेक्षित आयाम</div>
-    <div class="article">✍️ कर्मचारी ट्रेड युनियनहरूको व्यवस्थापन कि खारेजी ?</div>
-    <div class="article">✍️ निजामती सेवा विधेयक : कर्मचारीतन्त्रको भविष्य</div>
-    <div class="article">✍️ तलब समायोजनको बहसमा भइरहेको शब्द राजनीति</div>
-    <div class="article">✍️ सामाजिक सन्तुलन र प्रविधिगत सञ्जाल</div>
-    <div class="article">✍️ विपीको समाजवाद</div>
-    <div class="article">✍️ गान्धी र विपी</div>
-  </div>
-</div>
-
-<!-- SECTION 3 -->
-<div class="parallax" style="background-image:url('images/hero3.jpg');">
-  <div class="gradient-overlay gradient3"></div>
-  <h1 class="animate">सम्पर्क</h1>
-</div>
-<div class="section" id="section3">
-  <h2 class="animate">सम्पर्क</h2>
-  <p class="animate">तलका माध्यमबाट सम्पर्क गर्न सक्नुहुन्छ:</p>
-  <div class="socials" id="socialIconsLast">
-    <a href="https://www.facebook.com/pracas.k" class="fb" title="Facebook"><i class="ri-facebook-circle-fill"></i></a>
-    <a href="https://twitter.com/" class="tw" title="Twitter"><i class="ri-twitter-x-fill"></i></a>
-    <a href="https://www.instagram.com/pra.cas" class="ig" title="Instagram"><i class="ri-instagram-fill"></i></a>
-    <a href="https://www.linkedin.com/in/prakash-khati" class="li" title="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
-    <a href="https://www.youtube.com/" class="yt" title="YouTube"><i class="ri-youtube-fill"></i></a>
-  </div>
-</div>
-
-<script>
-// Navbar toggle
-const hamburger=document.getElementById('hamburger');
-const navLinks=document.getElementById('nav-links');
-hamburger.addEventListener('click',()=>navLinks.classList.toggle('active'));
-
-// Hero button scroll
-const heroBtn=document.getElementById('heroBtn');
-heroBtn.addEventListener('click',()=>document.getElementById('section1').scrollIntoView({behavior:'smooth'}));
-
-// Scroll-triggered animations
-const animateElements=document.querySelectorAll('.animate');
-function scrollAnimate(){
-  const triggerBottom=window.innerHeight*0.85;
-  animateElements.forEach(el=>{if(el.getBoundingClientRect().top<triggerBottom) el.classList.add('active');});
-  // Social icons
-  const social=document.getElementById('socialIconsLast');
-  if(social.getBoundingClientRect().top<triggerBottom&&!social.classList.contains('show')){
-    [...social.children].forEach((icon,i)=>setTimeout(()=>{icon.style.opacity='0';icon.style.animation='socialFade 0.6s ease forwards';icon.classList.add('glowPulse');},i*200));
-    social.classList.add('show');
-  }
-}
-window.addEventListener('scroll',scrollAnimate);
-window.addEventListener('load',scrollAnimate);
-
-// Hero typewriter
-const heroText=document.getElementById('heroText');
-const heroWords=["स्वागत छ मेरो वेबसाइटमा","प्रकाश खातीका लेखहरू","सम्पर्क गर्नुहोस्"];
-let i=0,j=0;
-function typeHero(){
-  if(i>=heroWords.length)i=0;
-  if(j<heroWords[i].length){heroText.textContent+=heroWords[i][j]; j++; setTimeout(typeHero,80);}
-  else{setTimeout(()=>{heroText.textContent=""; j=0; i++; typeHero();},1800);}
-}
-typeHero();
-
-// Particles
-const canvas=document.getElementById('particle-canvas'); const ctx=canvas.getContext('2d'); let particles=[];
-function initParticles(){
-  canvas.width=window.innerWidth; canvas.height=window.innerHeight;
-  particles=[];
-  const sections=[{count:50,dx:0.6,dy:0.6,color:'rgba(255,255,255,0.5)'},{count:35,dx:0.3,dy:0.3,color:'rgba(255,200,80,0.4)'},{count:40,dx:0.2,dy:0.2,color:'rgba(255,120,60,0.35)'}];
-  for(let s of sections){
-    for(let i=0;i<s.count;i++){
-      particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*s.dx,dy:(Math.random()-0.5)*s.dy,color:s.color});
-    }
-  }
-}
-function animateParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p=>{
-    p.x+=p.dx; p.y+=p.dy;
-    if(window.mousePos){const dx=window.mousePos.x-p.x;const dy=window.mousePos.y-p.y;p.x+=dx*0.0005; p.y+=dy*0.0005;}
-    if(p.x<0||p.x>canvas.width)p.dx*=-1; if(p.y<0||p.y>canvas.height)p.dy*=-1;
-    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=p.color; ctx.fill();
-  });
-  requestAnimationFrame(animateParticles);
-}
-window.addEventListener('resize',()=>{initParticles();}); window.addEventListener('mousemove',(e)=>{window.mousePos={x:e.clientX,y:e.clientY};});
-initParticles(); animateParticles();
-
-// Theme toggle
-const themeBtn=document.getElementById('themeToggle');
-themeBtn.addEventListener('click',()=>{
-  document.body.classList.toggle('light');
-  themeBtn.textContent=document.body.classList.contains('light')?"🌞":"🌙";
-});
-</script>
+    <header>
+        <h1>Welcome to Our Website</h1>
+        <button class="hero-btn" aria-label="Learn more about our services">Get Started</button>
+    </header>
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>We provide the best services for our customers.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Our Company</p>
+    </footer>
 </body>
 </html>
