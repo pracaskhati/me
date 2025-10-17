@@ -4,62 +4,109 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>प्रकाश खाती - PrakashKhati</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png" alt="प्रकाश खाती favicon">
 <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
 <style>
-:root{
+:root {
   --bg-color:#0b0b0b; --text-color:#f5f5f5; --accent-color:#ffce54;
-  --button-bg:#ffce54; --button-text:#111;
-  --muted-color:#ccc;
+  --button-bg:#ffce54; --button-text:#111; --muted-color:#ccc;
 }
-body.light{
+body.light {
   --bg-color:#fafafa; --text-color:#111; --accent-color:#ff8c00;
   --button-bg:#111; --button-text:#fff; --muted-color:#555;
 }
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:'Anek Devanagari',sans-serif;}
-body{background:var(--bg-color);color:var(--text-color);transition:0.8s;}
-nav{position:fixed;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:1rem 2rem;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);z-index:20;transition:0.5s;}
-body.light nav{background:rgba(255,255,255,0.6);}
-nav .logo-area{text-align:center;}
-nav .logo{font-size:1.5rem;font-weight:bold;color:var(--accent-color);cursor:pointer;}
-.nav-socials{display:flex;justify-content:center;gap:0.8rem;margin-top:0.3rem;}
-.nav-socials a{font-size:1.2rem;text-decoration:none;transition:all 0.3s ease;}
-.nav-socials a:hover{transform:translateY(-2px) scale(1.1);}
-.nav-socials .fb{color:#1877f2;} .nav-socials .tw{color:#1da1f2;} .nav-socials .ig{color:#e4405f;} .nav-socials .li{color:#0077b5;} .nav-socials .yt{color:#ff0000;}
-nav ul{list-style:none;display:flex;gap:2rem;align-items:center;}
-nav ul li a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s;}
-nav ul li a:hover{color:var(--accent-color);}
-.hamburger{display:none;flex-direction:column;cursor:pointer;gap:5px;z-index:21;}
-.hamburger div{width:25px;height:3px;background:var(--text-color);transition:0.3s;}
-@media(max-width:768px){
-  nav ul{position:fixed;top:100px;right:-100%;flex-direction:column;background:rgba(0,0,0,0.9);width:200px;height:calc(100% - 100px);padding:1rem;transition:0.3s;z-index:25;}
-  body.light nav ul{background:rgba(255,255,255,0.95);}
-  nav ul.active{right:0;}
-  .hamburger{display:flex;}
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Anek Devanagari',sans-serif; }
+body { background:var(--bg-color); color:var(--text-color); transition:0.5s; overflow-x:hidden; }
+
+nav {
+  position:fixed; top:0; left:0; width:100%; display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; padding:1rem 2rem; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:20; transition:0.5s;
 }
-#themeToggle{border:none;background:var(--accent-color);color:var(--button-text);padding:0.6rem 1rem;border-radius:30px;cursor:pointer;font-weight:bold;transition:all 0.4s ease;box-shadow:0 0 10px rgba(0,0,0,0.3);}
-#themeToggle:hover{transform:scale(1.08);box-shadow:0 0 15px var(--accent-color);}
-.parallax{position:relative;background-size:cover;background-position:center;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background-image:url('hero1.png');background-attachment:fixed;background-repeat:no-repeat;}
-.gradient-overlay{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;opacity:0.55;background-size:400% 400%;animation:gradAnim 20s ease infinite;}
-@keyframes gradAnim{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-.parallax h1{position:relative;z-index:2;font-size:3rem;color:var(--text-color);text-shadow:2px 2px 8px rgba(0,0,0,0.8);}
-.hero-btn{margin-top:20px;padding:0.9rem 2.2rem;background:#ff6347;color:#fff;border:none;cursor:pointer;border-radius:50px;font-weight:600;font-size:1.1rem;transition:all 0.3s ease;}
-.hero-btn:hover{background:#ff4500;transform:scale(1.05);}
-.section{text-align:center;padding:5rem 2rem;}
-.section h2{color:var(--accent-color);}
-.section-articles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem;}
-.article{background:rgba(255,255,255,0.05);padding:1rem;border-radius:10px;cursor:pointer;transition:0.3s;}
-.article:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-.article a{text-decoration:none;color:var(--text-color);}
-.post-frame {margin-top:2rem;padding:1.5rem;border-radius:12px;background:rgba(255,255,255,0.05);box-shadow:0 0 10px rgba(0,0,0,0.2);color:var(--text-color);transition:all 0.4s ease;min-height:250px;}
-body.light .post-frame{background:rgba(0,0,0,0.05);box-shadow:0 0 10px rgba(0,0,0,0.1);}
-.post-frame h1{color:var(--accent-color);margin-bottom:0.5rem;}
-.post-frame .meta{color:var(--muted-color);margin-bottom:1rem;}
-.post-frame p{line-height:1.7;margin-bottom:1rem;}
-.post-frame a.back-btn{display:inline-block;margin-top:1rem;background:var(--button-bg);color:var(--button-text);padding:0.7rem 1.4rem;border-radius:30px;text-decoration:none;font-weight:600;transition:all 0.3s;}
-.post-frame a.back-btn:hover{transform:scale(1.05);}
+body.light nav { background:rgba(255,255,255,0.6); }
+
+nav .logo-area { text-align:center; }
+nav .logo { font-size:1.5rem; font-weight:bold; color:var(--accent-color); cursor:pointer; }
+.nav-socials { display:flex; justify-content:center; gap:0.8rem; margin-top:0.3rem; }
+.nav-socials a { font-size:1.2rem; text-decoration:none; transition:all 0.3s ease; }
+.nav-socials a:hover { transform:translateY(-2px) scale(1.1); }
+.nav-socials .fb { color:#1877f2; } .nav-socials .tw { color:#1da1f2; }
+.nav-socials .ig { color:#e4405f; } .nav-socials .li { color:#0077b5; } .nav-socials .yt { color:#ff0000; }
+
+nav ul { list-style:none; display:flex; gap:2rem; align-items:center; }
+nav ul li a { color:var(--text-color); text-decoration:none; font-weight:500; transition:color 0.3s; }
+nav ul li a:hover { color:var(--accent-color); }
+
+.hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; z-index:21; }
+.hamburger div { width:25px; height:3px; background:var(--text-color); transition:0.3s; }
+
+@media(max-width:768px){
+  nav ul {
+    position:fixed; top:100px; right:-100%; flex-direction:column; background:rgba(0,0,0,0.9);
+    width:200px; height:calc(100% - 100px); padding:1rem; transition:0.3s; z-index:25;
+  }
+  body.light nav ul { background:rgba(255,255,255,0.95); }
+  nav ul.active { right:0; }
+  .hamburger { display:flex; }
+}
+
+#themeToggle {
+  border:none; background:var(--accent-color); color:var(--button-text);
+  padding:0.6rem 1rem; border-radius:30px; cursor:pointer; font-weight:bold;
+  transition:all 0.4s ease; box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+#themeToggle:hover { transform:scale(1.08); box-shadow:0 0 15px var(--accent-color); }
+
+.parallax {
+  position:relative; background-size:cover; background-position:center; height:100vh;
+  display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;
+  background-image:url('hero1.png'); background-attachment:fixed; background-repeat:no-repeat;
+}
+@media(max-width:768px){ .parallax { background-attachment:scroll; } }
+
+.gradient-overlay {
+  position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; opacity:0.55;
+  background: linear-gradient(270deg, #ff7f50, #ff6347, #ffce54, #ff7f50);
+  background-size: 400% 400%; animation:gradAnim 20s ease infinite;
+}
+@keyframes gradAnim { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
+
+.parallax h1 { position:relative; z-index:2; font-size:3rem; color:var(--text-color); text-shadow:2px 2px 8px rgba(0,0,0,0.8); }
+
+.hero-btn {
+  margin-top:20px; padding:0.9rem 2.2rem; background:#ff6347; color:#fff; border:none;
+  cursor:pointer; border-radius:50px; font-weight:600; font-size:1.1rem; transition:all 0.3s ease;
+}
+.hero-btn:hover { background:#ff4500; transform:scale(1.05); }
+
+.section { text-align:center; padding:5rem 2rem; }
+.section h2 { color:var(--accent-color); }
+
+.section-articles {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:2rem;
+}
+.article {
+  background:rgba(255,255,255,0.05); padding:1rem; border-radius:10px; transition:0.3s;
+}
+.article a {
+  text-decoration:none; color:var(--text-color); display:block; font-weight:500;
+}
+.article:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
+
+.post-frame {
+  margin-top:2rem; padding:1.5rem; border-radius:12px; background:rgba(255,255,255,0.05);
+  box-shadow:0 0 10px rgba(0,0,0,0.2); color:var(--text-color); transition:all 0.4s ease; min-height:250px;
+}
+body.light .post-frame { background:rgba(0,0,0,0.05); box-shadow:0 0 10px rgba(0,0,0,0.1); }
+.post-frame h1 { color:var(--accent-color); margin-bottom:0.5rem; }
+.post-frame .meta { color:var(--muted-color); margin-bottom:1rem; }
+.post-frame p { line-height:1.7; margin-bottom:1rem; }
+.post-frame a.back-btn {
+  display:inline-block; margin-top:1rem; background:var(--button-bg); color:var(--button-text);
+  padding:0.7rem 1.4rem; border-radius:30px; text-decoration:none; font-weight:600; transition:all 0.3s;
+}
+.post-frame a.back-btn:hover { transform:scale(1.05); }
 </style>
 </head>
 <body>
@@ -68,15 +115,15 @@ body.light .post-frame{background:rgba(0,0,0,0.05);box-shadow:0 0 10px rgba(0,0,
   <div class="logo-area">
     <a href="#home" class="logo" id="homeLogo">प्रकाश खाती</a>
     <div class="nav-socials">
-      <a href="https://facebook.com/pracas.k" class="fb"><i class="ri-facebook-circle-fill"></i></a>
-      <a href="https://twitter.com/" class="tw"><i class="ri-twitter-x-fill"></i></a>
-      <a href="https://instagram.com/pra.cas" class="ig"><i class="ri-instagram-fill"></i></a>
-      <a href="https://linkedin.com/in/prakash-khati" class="li"><i class="ri-linkedin-box-fill"></i></a>
-      <a href="https://youtube.com/" class="yt"><i class="ri-youtube-fill"></i></a>
+      <a href="https://facebook.com/pracas.k" class="fb" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+      <a href="https://twitter.com/" class="tw" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+      <a href="https://instagram.com/pra.cas" class="ig" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+      <a href="https://linkedin.com/in/prakash-khati" class="li" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+      <a href="https://youtube.com/" class="yt" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
     </div>
   </div>
   <button id="themeToggle">🌙</button>
-  <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button"><div></div><div></div><div></div></div>
   <ul id="nav-links">
     <li><a href="#section1">परिचय</a></li>
     <li><a href="#section2">लेख/रचना</a></li>
@@ -100,10 +147,10 @@ body.light .post-frame{background:rgba(0,0,0,0.05);box-shadow:0 0 10px rgba(0,0,
 <div class="section" id="section2">
   <h2>✍️ लेख / रचनाहरु</h2>
   <div class="section-articles">
-    <div class="article" data-article="articles/article1.html">प्रस्तावित संघीय निजामती सेवा विधेयकमा वृत्तिविकास</div>
-    <div class="article" data-article="articles/article2.html">कर्मचारी ट्रेड युनियनहरूको व्यवस्थापन कि खारेजी ?</div>
-    <div class="article" data-article="articles/article3.html">निजामती सेवा विधेयक : कर्मचारीतन्त्रको भविष्य</div>
-    <div class="article" data-article="articles/article4.html">तलब समायोजनको बहसमा भइरहेको शब्द राजनीति</div>
+    <div class="article"><a href="articles/article1.html" data-article="articles/article1.html">प्रस्तावित संघीय निजामती सेवा विधेयकमा वृत्तिविकास</a></div>
+    <div class="article"><a href="articles/article2.html" data-article="articles/article2.html">कर्मचारी ट्रेड युनियनहरूको व्यवस्थापन कि खारेजी ?</a></div>
+    <div class="article"><a href="articles/article3.html" data-article="articles/article3.html">निजामती सेवा विधेयक : कर्मचारीतन्त्रको भविष्य</a></div>
+    <div class="article"><a href="articles/article4.html" data-article="articles/article4.html">तलब समायोजनको बहसमा भइरहेको शब्द राजनीति</a></div>
   </div>
 
   <div id="postFrame" class="post-frame">
@@ -114,37 +161,47 @@ body.light .post-frame{background:rgba(0,0,0,0.05);box-shadow:0 0 10px rgba(0,0,
 <div class="section" id="section3">
   <h2>📞 सम्पर्क</h2>
   <div class="nav-socials">
-    <a href="https://facebook.com/pracas.k" class="fb"><i class="ri-facebook-circle-fill"></i></a>
-    <a href="https://twitter.com/" class="tw"><i class="ri-twitter-x-fill"></i></a>
-    <a href="https://instagram.com/pra.cas" class="ig"><i class="ri-instagram-fill"></i></a>
-    <a href="https://linkedin.com/in/prakash-khati" class="li"><i class="ri-linkedin-box-fill"></i></a>
-    <a href="https://youtube.com/" class="yt"><i class="ri-youtube-fill"></i></a>
+    <a href="https://facebook.com/pracas.k" class="fb" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+    <a href="https://twitter.com/" class="tw" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
+    <a href="https://instagram.com/pra.cas" class="ig" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+    <a href="https://linkedin.com/in/prakash-khati" class="li" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+    <a href="https://youtube.com/" class="yt" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
   </div>
 </div>
 
 <script>
 // Hamburger toggle
-const hamburger=document.getElementById('hamburger');
-const navLinks=document.getElementById('nav-links');
-hamburger.addEventListener('click',()=>navLinks.classList.toggle('active'));
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+// Close nav on link click
+document.querySelectorAll('#nav-links a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('active'));
+});
 
 // Logo scroll top
-document.getElementById('homeLogo').addEventListener('click',()=>{document.getElementById('home').scrollIntoView({behavior:'smooth'});});
-document.getElementById('heroBtn').addEventListener('click',()=>document.getElementById('section1').scrollIntoView({behavior:'smooth'}));
+document.getElementById('homeLogo').addEventListener('click', () => {
+  document.getElementById('home').scrollIntoView({ behavior:'smooth' });
+});
+document.getElementById('heroBtn').addEventListener('click', () => 
+  document.getElementById('section1').scrollIntoView({ behavior:'smooth' })
+);
 
 // Theme toggle
-const themeBtn=document.getElementById('themeToggle');
-themeBtn.addEventListener('click',()=>{
+const themeBtn = document.getElementById('themeToggle');
+themeBtn.addEventListener('click', () => {
   document.body.classList.toggle('light');
-  themeBtn.textContent=document.body.classList.contains('light')?"🌞":"🌙";
+  themeBtn.textContent = document.body.classList.contains('light') ? "🌞" : "🌙";
 });
 
 // Load article in postFrame
-const articles = document.querySelectorAll('.article');
+const articles = document.querySelectorAll('.article a');
 const postFrame = document.getElementById('postFrame');
 
 articles.forEach(article => {
-  article.addEventListener('click', async () => {
+  article.addEventListener('click', async (e) => {
+    e.preventDefault();
     const url = article.getAttribute('data-article');
     postFrame.innerHTML = "<p>⏳ लेख लोड हुँदैछ...</p>";
     try {
