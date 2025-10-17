@@ -68,7 +68,7 @@ nav ul li a:hover{color:var(--accent-color);}
 
 <nav>
   <div class="logo-area">
-    <div class="logo" id="homeLogo">प्रकाश खाती</div>
+    <a href="prakashkhati.com.np" class="logo" id="homeLogo">प्रकाश खाती</a>
     <div class="nav-socials">
       <a href="https://facebook.com/pracas.k" class="fb" title="Facebook"><i class="ri-facebook-circle-fill"></i></a>
       <a href="https://twitter.com/" class="tw" title="Twitter"><i class="ri-twitter-x-fill"></i></a>
@@ -90,8 +90,8 @@ nav ul li a:hover{color:var(--accent-color);}
 <div class="parallax" id="home">
   <div class="gradient-overlay"></div>
   <div class="hero-content">
-    <h3 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ।</h3>
-    <button class="hero-btn" id="heroBtn" aria-label="प्रकाश खाती">Prakash Khati</button>
+    <h3 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ 👋</h3>
+    <button class="hero-btn" id="heroBtn" aria-label="प्रकाश खाती">अगाडी बढ्नुहोस् ⇩</button>
   </div>
 </div>
 <style>
@@ -194,8 +194,36 @@ In essence, I see life as a journey—one filled with words, wisdom, friendships
 </div>
 
 <!-- सम्पर्क -->
+  <style>
+/* Contact Section Colors Using Theme Variables */
+#section3 {
+  background-color: rgba(255, 255, 255, 0.05); /* dark theme fallback */
+  background-color: rgba(var(--bg-color-rgb, 11, 11, 11), 0.05); /* theme-based */
+  color: var(--text-color);
+  transition: background 0.5s, color 0.5s;
+}
+
+#section3 h2 {
+  color: var(--accent-color);
+}
+
+#section3 p {
+  color: var(--muted-color);
+}
+
+#section3 a.contact-card {
+  background-color: rgba(var(--bg-color-rgb, 11, 11, 11), 0.1);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+#section3 a.contact-card:hover {
+  background-color: rgba(var(--accent-color-rgb, 255, 206, 84), 0.2);
+  color: var(--accent-color);
+}
+</style>
 <div class="section" id="section3">
-  <h2>सम्पर्क</h2>
+  <h2>📞सम्पर्क</h2>
   <p>तलका माध्यमबाट सम्पर्क गर्न सक्नुहुन्छ:</p>
   <div class="nav-socials">
     <a href="https://facebook.com/pracas.k" class="fb"><i class="ri-facebook-circle-fill"></i></a>
@@ -227,4 +255,5 @@ themeBtn.addEventListener('click',()=>{
 </script>
 </body>
 </html>
+
 
