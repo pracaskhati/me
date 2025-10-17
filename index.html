@@ -87,13 +87,84 @@ nav ul li a:hover{color:var(--accent-color);}
 </nav>
 
 <!-- HERO -->
-<div class="parallax" id="home" style="background-image:url('hero1.png');">
-  <div class="gradient-overlay gradient1"></div>
-  <div>
-    <h3 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ । </h3> </hr>
-    <button class="hero-btn" id="heroBtn">प्रकाश खाती</button>
+<div class="parallax" id="home">
+  <div class="gradient-overlay"></div>
+  <div class="hero-content">
+    <h3 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ।</h3>
+    <button class="hero-btn" id="heroBtn" aria-label="प्रकाश खाती">Prakash Khati</button>
   </div>
 </div>
+<style>
+  /* Parallax Container */
+  .parallax {
+    position: relative;
+    background-image: url('hero1.png');
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* Gradient Overlay */
+  .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+    z-index: 1;
+  }
+
+  /* Hero Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 90%;
+  }
+
+  .hero-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  /* Hero Button */
+  .hero-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #ff6347; /* Tomato color */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn:hover {
+    background-color: #ff4500; /* Darker on hover */
+    transform: scale(1.05);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h3 {
+      font-size: 1.8rem;
+    }
+
+    .hero-btn {
+      font-size: 1rem;
+      padding: 0.7rem 1.5rem;
+    }
+  }
+</style>
 
 <!-- परिचय -->
 <div class="section" id="section1">
@@ -156,3 +227,4 @@ themeBtn.addEventListener('click',()=>{
 </script>
 </body>
 </html>
+
