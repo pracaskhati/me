@@ -7,8 +7,8 @@
 <link rel="icon" type="image/png" href="favicon.png" alt="प्रकाश खाती favicon">
 <link href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
 <style>
+/* ========== Variables & Reset ========== */
 :root {
   --bg-color:#0b0b0b; --text-color:#f5f5f5; --accent-color:#ffce54;
   --button-bg:#ffce54; --button-text:#111; --muted-color:#ccc;
@@ -20,12 +20,12 @@ body.light {
 * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Anek Devanagari',sans-serif; }
 body { background:var(--bg-color); color:var(--text-color); transition:0.5s; overflow-x:hidden; }
 
+/* ========== NAVIGATION ========== */
 nav {
   position:fixed; top:0; left:0; width:100%; display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; padding:1rem 2rem; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:20; transition:0.5s;
+  padding:1rem 2rem; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:20; transition:0.5s;
 }
 body.light nav { background:rgba(255,255,255,0.6); }
-
 nav .logo-area { text-align:center; }
 nav .logo { font-size:1.5rem; font-weight:bold; color:var(--accent-color); cursor:pointer; }
 .nav-socials { display:flex; justify-content:center; gap:0.8rem; margin-top:0.3rem; }
@@ -51,6 +51,7 @@ nav ul li a:hover { color:var(--accent-color); }
   .hamburger { display:flex; }
 }
 
+/* ========== THEME TOGGLE ========== */
 #themeToggle {
   border:none; background:var(--accent-color); color:var(--button-text);
   padding:0.6rem 1rem; border-radius:30px; cursor:pointer; font-weight:bold;
@@ -58,9 +59,10 @@ nav ul li a:hover { color:var(--accent-color); }
 }
 #themeToggle:hover { transform:scale(1.08); box-shadow:0 0 15px var(--accent-color); }
 
+/* ========== HERO SECTION ========== */
 .parallax {
   position:relative; background-size:cover; background-position:center; height:100vh;
-  display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; overflow:hidden;
   background-image:url('hero1.png'); background-attachment:fixed; background-repeat:no-repeat;
 }
 @media(max-width:768px){ .parallax { background-attachment:scroll; } }
@@ -72,17 +74,18 @@ nav ul li a:hover { color:var(--accent-color); }
 }
 @keyframes gradAnim { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
 
-.parallax h1 { position:relative; z-index:2; font-size:3rem; color:var(--text-color); text-shadow:2px 2px 8px rgba(0,0,0,0.8); }
-
+.hero-content { position:relative; z-index:2; max-width:900px; padding:0 1rem; }
+.hero-content h1 { font-size:3rem; text-shadow:2px 2px 8px rgba(0,0,0,0.8); }
+.hero-content .hero-subtitle { margin-top:0.5rem; font-size:1.2rem; color:var(--muted-color); }
 .hero-btn {
-  margin-top:20px; padding:0.9rem 2.2rem; background:#ff6347; color:#fff; border:none;
-  cursor:pointer; border-radius:50px; font-weight:600; font-size:1.1rem; transition:all 0.3s ease;
+  margin-top:20px; padding:0.9rem 2.2rem; border-radius:50px; font-weight:600; font-size:1.1rem;
+  border:none; cursor:pointer; background:#ff6347; color:#fff; transition:all 0.3s ease;
 }
 .hero-btn:hover { background:#ff4500; transform:scale(1.05); }
 
+/* ========== SECTIONS ========== */
 .section { text-align:center; padding:5rem 2rem; }
 .section h2 { color:var(--accent-color); }
-
 .section-articles {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:2rem;
 }
@@ -94,6 +97,7 @@ nav ul li a:hover { color:var(--accent-color); }
 }
 .article:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
 
+/* ========== POST FRAME ========== */
 .post-frame {
   margin-top:2rem; padding:1.5rem; border-radius:12px; background:rgba(255,255,255,0.05);
   box-shadow:0 0 10px rgba(0,0,0,0.2); color:var(--text-color); transition:all 0.4s ease; min-height:250px;
@@ -111,6 +115,7 @@ body.light .post-frame { background:rgba(0,0,0,0.05); box-shadow:0 0 10px rgba(0
 </head>
 <body>
 
+<header>
 <nav>
   <div class="logo-area">
     <a href="#home" class="logo" id="homeLogo">प्रकाश खाती</a>
@@ -122,44 +127,44 @@ body.light .post-frame { background:rgba(0,0,0,0.05); box-shadow:0 0 10px rgba(0
       <a href="https://youtube.com/" class="yt" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
     </div>
   </div>
-  <button id="themeToggle">🌙</button>
+  <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
   <div class="hamburger" id="hamburger" aria-label="Menu" role="button"><div></div><div></div><div></div></div>
   <ul id="nav-links">
-    <li><a href="#section1">परिचय</a></li>
-    <li><a href="#section2">लेख/रचना</a></li>
-    <li><a href="#section3">सम्पर्क</a></li>
+    <li><a href="#section1">✨ परिचय</a></li>
+    <li><a href="#section2">📰 लेख/रचना</a></li>
+    <li><a href="#section3">☏ सम्पर्क</a></li>
   </ul>
 </nav>
+</header>
 
+<main>
 <section class="parallax" id="home" role="banner" aria-label="Hero section with welcome message">
   <div class="gradient-overlay"></div>
   <div class="hero-content">
-    <h1 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ 👋</h1>
-    <p class="hero-subtitle">यहाँ तपाईंले लेख, रचना र विचारहरू पाउनुहुनेछ।</p>
-    <button class="hero-btn" id="heroBtn" aria-label="Scroll to introduction section">अगाडी बढ्नुहोस् ⇩</button>
+    <h3 id="heroText">मेरो ब्लगमा यहाँलाई हार्दिक स्वागत छ 👋</h3>
+    <button class="hero-btn" id="heroBtn" aria-label="Scroll to introduction section">अगाडी बढ्नुहोस् ⤵️ </button>
   </div>
 </section>
 
-<div class="section" id="section1">
+<section class="section" id="section1">
   <h2>🚹 प्रकाश खाती</h2>
   <p>Ever since I can remember, I’ve loved the world of words...</p>
-</div>
+</section>
 
-<div class="section" id="section2">
-  <h2>✍️ लेख / रचनाहरु</h2>
+<section class="section" id="section2">
+  <h2>📃लेख / रचनाहरु</h2>
   <div class="section-articles">
-    <div class="article"><a href="article1.html" data-article="article1.html">प्रस्तावित संघीय निजामती सेवा विधेयकमा वृत्तिविकास</a></div>
-    <div class="article"><a href="articles/article2.html" data-article="articles/article2.html">कर्मचारी ट्रेड युनियनहरूको व्यवस्थापन कि खारेजी ?</a></div>
-    <div class="article"><a href="articles/article3.html" data-article="articles/article3.html">निजामती सेवा विधेयक : कर्मचारीतन्त्रको भविष्य</a></div>
-    <div class="article"><a href="articles/article4.html" data-article="articles/article4.html">तलब समायोजनको बहसमा भइरहेको शब्द राजनीति</a></div>
+    <div class="article"><a href="articles/article1.html" data-article="articles/article1.html">✍️ प्रस्तावित संघीय निजामती सेवा विधेयकमा वृत्तिविकास</a></div>
+    <div class="article"><a href="articles/article2.html" data-article="articles/article2.html">✍️ कर्मचारी ट्रेड युनियनहरूको व्यवस्थापन कि खारेजी ?</a></div>
+    <div class="article"><a href="articles/article3.html" data-article="articles/article3.html">✍️ निजामती सेवा विधेयक : कर्मचारीतन्त्रको भविष्य</a></div>
+    <div class="article"><a href="articles/article4.html" data-article="articles/article4.html">✍️ तलब समायोजनको बहसमा भइरहेको शब्द राजनीति</a></div>
   </div>
-
   <div id="postFrame" class="post-frame">
     <p>लेख पढ्न माथिका शीर्षकहरूमा क्लिक गर्नुहोस्...</p>
   </div>
-</div>
+</section>
 
-<div class="section" id="section3">
+<section class="section" id="section3">
   <h2>📞 सम्पर्क</h2>
   <div class="nav-socials">
     <a href="https://facebook.com/pracas.k" class="fb" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
@@ -168,7 +173,8 @@ body.light .post-frame { background:rgba(0,0,0,0.05); box-shadow:0 0 10px rgba(0
     <a href="https://linkedin.com/in/prakash-khati" class="li" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
     <a href="https://youtube.com/" class="yt" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
   </div>
-</div>
+</section>
+</main>
 
 <script>
 // Hamburger toggle
@@ -217,7 +223,6 @@ articles.forEach(article => {
   });
 });
 </script>
+
 </body>
 </html>
-
-
